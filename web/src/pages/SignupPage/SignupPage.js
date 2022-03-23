@@ -73,6 +73,10 @@ const SignupPage = () => {
                         value: true,
                         message: 'Username is required',
                       },
+                      pattern: {
+                        value: /^[^@]+@[^.]+\..+$/,
+                        message: 'Username should be a valid email',
+                      },
                     }}
                   />
 

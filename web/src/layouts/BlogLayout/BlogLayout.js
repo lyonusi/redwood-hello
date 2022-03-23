@@ -7,10 +7,10 @@ const BlogLayout = ({ children }) => {
 
   return (
     <>
-      <header>
+      <header className="rw-header">
         <div className="flex-between">
-          <h1>Blog</h1>
-          {isAuthenticated ? (
+          <h1 className="rw-heading rw-heading-primary">Blog</h1>
+          {/* {isAuthenticated ? (
             <div>
               <span>Logged in as {currentUser.email}</span>{' '}
               <button type="button" onClick={logOut}>
@@ -19,7 +19,7 @@ const BlogLayout = ({ children }) => {
             </div>
           ) : (
             <Link to={routes.login()}>Login</Link>
-          )}
+          )} */}
         </div>
         <nav>
           <ul>

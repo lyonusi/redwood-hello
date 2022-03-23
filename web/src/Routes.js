@@ -10,6 +10,7 @@
 import { Private, Set, Router, Route } from '@redwoodjs/router'
 import PostsLayout from 'src/layouts/PostsLayout'
 import BlogLayout from 'src/layouts/BlogLayout'
+import GlobalLayout from 'src/layouts/GlobalLayout'
 
 const Routes = () => {
   return (
@@ -18,20 +19,22 @@ const Routes = () => {
       <Route path="/signup" page={SignupPage} name="signup" />
       <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
-      <Set wrap={BlogLayout}>
-        <Route path="/home" page={HomePage} name="home" />
-        <Route path="/contact" page={ContactPage} name="contact" />
-        <Route path="/article/{id:Int}" page={ArticlePage} name="article" />
-      </Set>
-
-      <Private unauthenticated="home">
-        <Set wrap={PostsLayout}>
-          <Route path="/admin/posts/new" page={PostNewPostPage} name="newPost" />
-          <Route path="/admin/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
-          <Route path="/admin/posts/{id:Int}" page={PostPostPage} name="post" />
-          <Route path="/admin/posts" page={PostPostsPage} name="posts" />
+      <Set wrap={GlobalLayout}>
+        <Set wrap={BlogLayout}>
+          <Route path="/home" page={HomePage} name="home" />
+          <Route path="/contact" page={ContactPage} name="contact" />
+          <Route path="/article/{id:Int}" page={ArticlePage} name="article" />
         </Set>
-      </Private>
+
+        <Private unauthenticated="home">
+          <Set wrap={PostsLayout}>
+            <Route path="/admin/posts/new" page={PostNewPostPage} name="newPost" />
+            <Route path="/admin/posts/{id:Int}/edit" page={PostEditPostPage} name="editPost" />
+            <Route path="/admin/posts/{id:Int}" page={PostPostPage} name="post" />
+            <Route path="/admin/posts" page={PostPostsPage} name="posts" />
+          </Set>
+        </Private>
+      </Set>
       <Route notfound page={NotFoundPage} />
     </Router>
   )

@@ -7,6 +7,7 @@ import {
   PasswordField,
   Submit,
   FieldError,
+  // FormError,
 } from '@redwoodjs/forms'
 import { useAuth } from '@redwoodjs/auth'
 import { MetaTags } from '@redwoodjs/web'
@@ -54,6 +55,8 @@ const LoginPage = () => {
             <div className="rw-segment-main">
               <div className="rw-form-wrapper">
                 <Form onSubmit={onSubmit} className="rw-form-wrapper">
+                  {/* <FormError error={error} wrapperClassName="form-error" /> */}
+
                   <Label
                     name="username"
                     className="rw-label"
@@ -70,6 +73,10 @@ const LoginPage = () => {
                       required: {
                         value: true,
                         message: 'Username is required',
+                      },
+                      pattern: {
+                        value: /^[^@]+@[^.]+\..+$/,
+                        message: 'Username should be a valid email',
                       },
                     }}
                   />
@@ -95,7 +102,11 @@ const LoginPage = () => {
                       },
                     }}
                   />
-
+                  {/* <div className="rw-link">
+                    <Link to={routes.emailLogin()} className="rw-link">
+                      Login with Email
+                    </Link>
+                  </div> */}
                   <div className="rw-forgot-link">
                     <Link
                       to={routes.forgotPassword()}
