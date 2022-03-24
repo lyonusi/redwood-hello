@@ -1,4 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
+import { Toaster } from '@redwoodjs/web/toast'
 import { useAuth } from '@redwoodjs/auth'
 // import SignoutBtn from 'src/components/SignoutBtn/SignoutBtn'
 
@@ -32,6 +33,7 @@ const Navigation = () => {
                 >
                   Logout
                 </button>
+                <Toaster toastOptions={{ duration: 60000 }} />
               </div>
             </div>
           </>
