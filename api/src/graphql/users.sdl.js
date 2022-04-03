@@ -47,8 +47,6 @@ export const schema = gql`
     resetTokenExpiresAt: DateTime
   }
   type Mutation {
-    emailUser(id: String!): User! @skipAuth
+    setEmailVerified(id: String!, code: String!): User! @skipAuth
   }
 `
-
-//emailUser(id: String!): User! @requireAuth
