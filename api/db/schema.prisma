@@ -25,10 +25,25 @@ model Contact {
 
 model User {
   id                  String    @id @default(uuid())
-  name                String?
   email               String    @unique
+  is_email_verified   Boolean   @default(false)
+  username            String    @unique
   hashedPassword      String
   salt                String
+  bio                 String?
+  profile_pic_url     String?
+  created_at          DateTime  @default(now())
+  updated_at          DateTime  @default(now())
   resetToken          String?
   resetTokenExpiresAt DateTime?
+  audits              Audit[]
+}
+
+model Audit {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  log       String
 }
