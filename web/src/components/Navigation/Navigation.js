@@ -9,7 +9,7 @@ const Navigation = () => {
   return (
     <div>
       <nav>
-        {isAuthenticated ? (
+        {/* {isAuthenticated ? (
           // signed in - show the Sign Out button
           <>
             <div className="flex-between">
@@ -38,18 +38,18 @@ const Navigation = () => {
             </div>
           </>
         ) : (
-          // signed out - show the Sign Up and Sign In links
-          <>
-            <div className="flex-between">
-              <Link to={routes.signup()} className="rw-button rw-button-blue">
-                Sign Up
-              </Link>
-              <Link to={routes.login()} className="rw-button rw-button-green">
-                Login
-              </Link>
-            </div>
-          </>
-        )}
+          // signed out - show the Sign Up and Sign In links */}
+        <>
+          <div className="flex-between">
+            <Link to={routes.signup()} className="rw-button rw-button-blue">
+              Sign Up
+            </Link>
+            <Link to={routes.login()} className="rw-button rw-button-green">
+              Login
+            </Link>
+          </div>
+        </>
+        {/* )} */}
       </nav>
     </div>
   )
