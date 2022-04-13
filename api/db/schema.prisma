@@ -8,42 +8,115 @@ generator client {
   binaryTargets = "native"
 }
 
+// Define your own datamodels here and run `yarn redwood prisma migrate dev`
+// to create migrations for them and apply to your dev DB.
+// TODO: Please remove the following example:
+model User {
+  id                        String    @id @default(uuid())
+  email                     String    @unique
+  isEmailVerified           Boolean   @default(false)
+  isBlocked                 Boolean   @default(false)
+  username                  String    @unique
+  hashedPassword            String
+  salt                      String
+  resetToken                String?
+  resetTokenExpiresAt       DateTime?
+  verificationCode          String?
+  verificationCodeExpiresAt DateTime?
+  bio                       String?
+  profilePicUrl             String?
+  favLanguages              String[]
+  // favTopics                 UserToTopic[]
+  // favPosts                  UserToPost[]
+  // favQuestions              UserToQuestion[]
+  // favAnswers                UserToAnswer[]
+  // followedBy                FollowerToFollowing[] @relation("follower")
+  // following                 FollowerToFollowing[] @relation("following")
+  createdAt                 DateTime  @default(now())
+  updatedAt                 DateTime  @default(now())
+  deletedAt                 DateTime?
+}
+
+// model FollowerToFollowing {
+//   id          String   @id @default(uuid())
+//   follower    User     @relation("follower", fields: [followerId], references: [id])
+//   followerId  String
+//   following   User     @relation("following", fields: [followingId], references: [id])
+//   followingId String
+//   assignedAt  DateTime @default(now())
+//   isDeleted   Boolean  @default(false)
+
+//   @@unique([followerId, followingId])
+// }
+
+// model Topic {
+//   id      String        @id @default(uuid())
+//   name    String
+//   favedBy UserToTopic[]
+// }
+
 model Post {
   id        Int      @id @default(autoincrement())
   title     String
   body      String
   createdAt DateTime @default(now())
+  // favedBy   UserToPost[]
 }
 
-model Contact {
-  id        Int      @id @default(autoincrement())
-  name      String
-  email     String
-  message   String
-  createdAt DateTime @default(now())
-}
+// model Question {
+//   id      String           @id @default(uuid())
+//   favedBy UserToQuestion[]
+// }
 
-model User {
-  id                  String    @id @default(uuid())
-  email               String    @unique
-  is_email_verified   Boolean   @default(false)
-  username            String    @unique
-  hashedPassword      String
-  salt                String
-  bio                 String?
-  profile_pic_url     String?
-  created_at          DateTime  @default(now())
-  updated_at          DateTime  @default(now())
-  resetToken          String?
-  resetTokenExpiresAt DateTime?
-  audits              Audit[]
-}
+// model Answer {
+//   id      String         @id @default(uuid())
+//   favedBy UserToAnswer[]
+// }
 
-model Audit {
-  id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now()) @updatedAt
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  log       String
-}
+// model UserToTopic {
+//   id         String   @id @default(uuid())
+//   user       User     @relation(fields: [userId], references: [id])
+//   userId     String // relation scalar field (used in the `@relation` attribute above)
+//   topic      Topic    @relation(fields: [topicId], references: [id])
+//   topicId    String // relation scalar field (used in the `@relation` attribute above)
+//   assignedAt DateTime @default(now())
+//   isDeleted  Boolean  @default(false)
+
+//   @@unique([userId, topicId])
+// }
+
+// model UserToPost {
+//   id         String   @id @default(uuid())
+//   user       User     @relation(fields: [userId], references: [id])
+//   userId     String // relation scalar field (used in the `@relation` attribute above)
+//   post       Post     @relation(fields: [postId], references: [id])
+//   postId     Int // relation scalar field (used in the `@relation` attribute above)
+//   assignedAt DateTime @default(now())
+//   isDeleted  Boolean  @default(false)
+
+//   @@unique([userId, postId])
+// }
+
+// model UserToQuestion {
+//   id         String   @id @default(uuid())
+//   user       User     @relation(fields: [userId], references: [id])
+//   userId     String // relation scalar field (used in the `@relation` attribute above)
+//   question   Question @relation(fields: [questionId], references: [id])
+//   questionId String // relation scalar field (used in the `@relation` attribute above)
+//   assignedAt DateTime @default(now())
+//   isDeleted  Boolean  @default(false)
+
+//   @@unique([userId, questionId])
+// }
+
+// model UserToAnswer {
+//   id         String   @id @default(uuid())
+//   user       User     @relation(fields: [userId], references: [id])
+//   userId     String // relation scalar field (used in the `@relation` attribute above)
+//   answer     Answer   @relation(fields: [answerId], references: [id])
+//   answerId   String // relation scalar field (used in the `@relation` attribute above)
+//   assignedAt DateTime @default(now())
+//   isDeleted  Boolean  @default(false)
+
+//   @@unique([userId, answerId])
+// }

@@ -1,6 +1,9 @@
 import { db } from 'src/lib/db'
 import { DbAuthHandler } from '@redwoodjs/api'
-import { requestToResetPassword } from 'src/services/users/users'
+import {
+  requestToResetPassword,
+  sendVerifyEmail,
+} from 'src/services/users/users'
 
 export const handler = async (event, context) => {
   const forgotPasswordOptions = {
@@ -105,14 +108,25 @@ export const handler = async (event, context) => {
     // `signUp()` function in the form of: `{ message: 'String here' }`.
     handler: ({ username, hashedPassword, salt, userAttributes }) => {
       console.log(username, userAttributes)
-      return db.user.create({
-        data: {
-          username: username,
-          email: userAttributes.email,
-          hashedPassword: hashedPassword,
-          salt: salt,
-        },
-      })
+      const userSignUp = async (
+        username,
+        hashedPassword,
+        salt,
+        userAttributes
+      ) => {
+        const user = await db.user.create({
+          data: {
+            username: username,
+            email: userAttributes.email,
+            hashedPassword: hashedPassword,
+            salt: salt,
+          },
+        })
+        sendVerifyEmail({ id: user.id })
+        return user
+      }
+      const user = userSignUp(username, hashedPassword, salt, userAttributes)
+      return user
     },
 
     errors: {
