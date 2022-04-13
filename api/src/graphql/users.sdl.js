@@ -2,14 +2,14 @@ export const schema = gql`
   type User {
     id: String!
     email: String!
-    is_email_verified: Boolean!
+    isEmailVerified: Boolean!
     username: String!
     hashedPassword: String!
     salt: String!
     bio: String
-    profile_pic_url: String
-    created_at: DateTime!
-    updated_at: DateTime!
+    profilePicUrl: String
+    createdAt: DateTime!
+    updatedAt: DateTime!
     resetToken: String
     resetTokenExpiresAt: DateTime
     audits: [Audit]!
@@ -21,30 +21,32 @@ export const schema = gql`
 
   input CreateUserInput {
     email: String!
-    is_email_verified: Boolean!
+    isEmailVerified: Boolean!
     username: String!
     hashedPassword: String!
     salt: String!
     bio: String
-    profile_pic_url: String
-    created_at: DateTime!
-    updated_at: DateTime!
+    profilePicUrl: String
+    createdAt: DateTime!
+    updatedAt: DateTime!
     resetToken: String
     resetTokenExpiresAt: DateTime
   }
 
   input UpdateUserInput {
     email: String
-    is_email_verified: Boolean
+    isEmailVerified: Boolean
     username: String
     hashedPassword: String
     salt: String
     bio: String
-    profile_pic_url: String
-    created_at: DateTime
-    updated_at: DateTime
+    profilePicUrl: String
+    createdAt: DateTime
+    updatedAt: DateTime
     resetToken: String
     resetTokenExpiresAt: DateTime
+    verificationCode: String
+    verificationCodeExpiresAt: DateTime
   }
   type Mutation {
     setEmailVerified(id: String!, code: String!): User! @skipAuth

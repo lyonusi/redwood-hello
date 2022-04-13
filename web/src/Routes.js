@@ -21,7 +21,7 @@ const Routes = () => {
       <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />
       <Set wrap={GlobalLayout}>
         <Set wrap={BlogLayout}>
-          <Route path="/home" page={HomePage} name="home" />
+          <Route path="/" page={HomePage} name="home" />
           <Route path="/contact" page={ContactPage} name="contact" />
           <Route path="/article/{id:Int}" page={ArticlePage} name="article" />
         </Set>
