@@ -1,8 +1,8 @@
 import { db } from 'src/lib/db'
 import { DbAuthHandler } from '@redwoodjs/api'
 import {
-  requestToResetPassword,
-  sendVerifyEmail,
+  resetPassword,
+  generateVerificationCodeAndEmail,
 } from 'src/services/users/users'
 
 export const handler = async (event, context) => {
@@ -20,7 +20,7 @@ export const handler = async (event, context) => {
     // address in a toast message so the user will know it worked and where
     // to look for the email.
     handler: (user) => {
-      requestToResetPassword({ id: user.id })
+      resetPassword({ id: user.id })
       return user
     },
 
@@ -50,6 +50,12 @@ export const handler = async (event, context) => {
     // by the `logIn()` function from `useAuth()` in the form of:
     // `{ message: 'Error message' }`
     handler: (user) => {
+      if (!user.isEmailVerified) {
+        throw `{ message: 'User email is not verified' }`
+      }
+      if (user.isBlocked) {
+        throw `{ message: 'User is blocked' }`
+      }
       return user
     },
 
@@ -106,26 +112,16 @@ export const handler = async (event, context) => {
     //
     // If this returns anything else, it will be returned by the
     // `signUp()` function in the form of: `{ message: 'String here' }`.
-    handler: ({ username, hashedPassword, salt, userAttributes }) => {
-      console.log(username, userAttributes)
-      const userSignUp = async (
-        username,
-        hashedPassword,
-        salt,
-        userAttributes
-      ) => {
-        const user = await db.user.create({
-          data: {
-            username: username,
-            email: userAttributes.email,
-            hashedPassword: hashedPassword,
-            salt: salt,
-          },
-        })
-        sendVerifyEmail({ id: user.id })
-        return user
-      }
-      const user = userSignUp(username, hashedPassword, salt, userAttributes)
+    handler: async ({ username, hashedPassword, salt, userAttributes }) => {
+      const user = await db.user.create({
+        data: {
+          username: username,
+          email: userAttributes.email,
+          hashedPassword: hashedPassword,
+          salt: salt,
+        },
+      })
+      generateVerificationCodeAndEmail({ id: user.id })
       return user
     },
 
