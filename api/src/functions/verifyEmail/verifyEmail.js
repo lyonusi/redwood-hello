@@ -1,5 +1,5 @@
 import { logger } from 'src/lib/logger'
-import { userVerifyEmail } from 'src/services/users/users'
+import { verifyUser } from 'src/services/users/users'
 
 /**
  * The handler function is your code that processes http request events.
@@ -25,7 +25,7 @@ export const handler = async (event, _context) => {
     'verification code =',
     event.queryStringParameters.code
   )
-  const verifiedStatus = await userVerifyEmail(
+  const verifiedStatus = await verifyUser(
     event.queryStringParameters.email,
     event.queryStringParameters.code
   )

@@ -4,7 +4,6 @@ import {
   sendPasswordResetEmail,
   VERIFICATION_CODE_EXPIRES_IN_SECONDS,
 } from 'src/lib/email'
-import { sendEmail } from 'src/lib/email'
 
 export const users = () => {
   return db.user.findMany()
