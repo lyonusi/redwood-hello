@@ -54,7 +54,7 @@ export function sendVerificationEmail(email, name, code) {
   const subject = 'Please Verify Your Email'
   const link =
     process.env.HOST_URL +
-    'verifyEmail?email=' + //this path will be replaced by frontend page path
+    '.netlify/functions/verifyEmail?email=' + //this path will be replaced by frontend page path
     email +
     '&code=' +
     code
