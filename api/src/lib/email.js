@@ -52,36 +52,38 @@ export function sendPasswordResetEmail(emailAddress, name, token) {
 
 export function sendVerificationEmail(email, name, code) {
   const subject = 'Please Verify Your Email'
-  const link =
-    process.env.HOST_URL +
-    '.netlify/functions/verifyEmail?email=' + //this path will be replaced by frontend page path
-    email +
-    '&code=' +
-    code
+  // const link =
+  //   process.env.HOST_URL +
+  //   '.netlify/functions/verifyEmail?email=' + //this path will be replaced by frontend page path
+  //   email +
+  //   '&code=' +
+  //   code
   const text =
     'Hi ' +
     name +
     ',\n\n' +
     'Welcome to join our community!\n\n' +
-    'Please enter this code to verify your email address. The code and link are valid for 24 hours.\n\n' +
-    'Your code is ' +
-    code +
-    '.\n\n' +
-    'Your link is ' +
-    link
+    'Your account is created and this is an automatic confirmation email.'
+  // 'Please enter this code to verify your email address. The code and link are valid for 24 hours.\n\n' +
+  // 'Your code is ' +
+  // code +
+  // '.\n\n' +
+  // 'Your link is ' +
+  // link
   const html =
     'Hi ' +
     name +
     ',<br><br>' +
     'Welcome to join our community!<br><br>' +
-    'Please enter this code to verify your email address. The code and link are valid for 24 hours.<br><br>' +
-    'Your code is ' +
-    code +
-    '.<br><br>' +
-    'Your link is <a href="' +
-    link +
-    '" >' +
-    link +
-    '</a>'
+    'Your account is created and this is an automatic confirmation email.'
+  // 'Please enter this code to verify your email address. The code and link are valid for 24 hours.<br><br>' +
+  // 'Your code is ' +
+  // code +
+  // '.<br><br>' +
+  // 'Your link is <a href="' +
+  // link +
+  // '" >' +
+  // link +
+  // '</a>'
   return sendEmail({ to: email, subject, text, html })
 }
