@@ -50,9 +50,9 @@ export const handler = async (event, context) => {
     // by the `logIn()` function from `useAuth()` in the form of:
     // `{ message: 'Error message' }`
     handler: (user) => {
-      if (!user.isEmailVerified) {
-        throw `{ message: 'User email is not verified' }`
-      }
+      // if (!user.isEmailVerified) {
+      //   throw `{ message: 'User email is not verified' }`
+      // }
       if (user.isBlocked) {
         throw `{ message: 'User is blocked' }`
       }

@@ -62,7 +62,7 @@ const LoginPage = () => {
                     className="rw-label"
                     errorClassName="rw-label rw-label-error"
                   >
-                    Username
+                    Email
                   </Label>
                   <TextField
                     name="username"
@@ -72,11 +72,11 @@ const LoginPage = () => {
                     validation={{
                       required: {
                         value: true,
-                        message: 'Username is required',
+                        message: 'Email is required',
                       },
                       pattern: {
                         value: /^[^@]+@[^.]+\..+$/,
-                        message: 'Username should be a valid email',
+                        message: 'Please enter a valid email',
                       },
                     }}
                   />

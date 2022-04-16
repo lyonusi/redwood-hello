@@ -50,7 +50,7 @@ export function sendPasswordResetEmail(emailAddress, name, token) {
   return sendEmail({ to: emailAddress, subject, text, html })
 }
 
-export function sendVerificationEmail(email, name, code) {
+export function sendVerificationEmail(email, name, _code) {
   const subject = 'Please Verify Your Email'
   // const link =
   //   process.env.HOST_URL +
