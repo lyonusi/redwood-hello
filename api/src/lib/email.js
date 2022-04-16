@@ -31,18 +31,18 @@ export function sendPasswordResetEmail(emailAddress, name, token) {
     'Hi ' +
     name +
     ',\n\n' +
-    'You recently requested to reset your password.\n\nThe token and link are valid for 20 minutes.\n\n' +
-    'Your token is ' +
-    token +
-    'Your link is ' +
+    'You recently requested to reset your password.\n\nThis link is valid for 20 minutes.\n\n' +
+    // 'Your token is ' +
+    // token +
+    'Your link to reset the password is ' +
     link
   const html =
     'Hi ' +
     name +
-    ', <br><br>You recently requested to reset your password.<br><br>The token and link are valid for 20 minutes.<br><br>' +
-    'Your token is ' +
-    token +
-    '<br><br>Your link is <a href="' +
+    ', <br><br>You recently requested to reset your password.<br><br>nThis link is valid for 20 minutes.<br><br>' +
+    // 'Your token is ' +
+    // token +
+    '<br><br>Your link to reset the password is <a href="' +
     link +
     '" >' +
     link +
