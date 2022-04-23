@@ -15,6 +15,6 @@ On day one, I almost immediately failed to get it work in my local environment a
 
 I actually read through 30+ source code documents of this framework and searched thoroughly on their community forum, GitHub pages, posted the issue, reached out for help, sent emails and messages to the contributors, and figured out there were some version conflicts with its included components and the co-founder replied with temporary solutions... and several small issues and bugs in the next couple of days, all solved in this way - and later on they were officially solved in the next published versions. 
 
-And you know what? I very much enjoyed & appreciate this experience! 
+And you know what? I **very much enjoyed & appreciate** this experience! 
 
 I am now more confident to read source codes / documents, troubleshoot issues and bugs at a larger scale, and realize the empowerment of open source spirit at the very beginning of my career as a developer.
