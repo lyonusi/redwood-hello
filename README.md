@@ -6,7 +6,7 @@ I created this project as I was applying for an unpaid position in a project tea
 
 Before this project I had zero knowledge of database ORM, GraphQL & Apollo, and serverless functions; it took me 3 days to learn these technologies and complete backend APIs for user signup, login, create/edit/delete blog posts, basic frontend interface, and successfully deploy this demo to Netlify.
 
-Upon the completion of this project, I was accepted for the position. I then developed 30+ backend APIs for the project and gained solid understanding in GraphQL API design, couple and decouple, TypeScript(which I quite like!), many-to-many relation databases, Git workflow, and so much more.
+Upon the completion of this project, I was accepted for the position. I then developed 30+ backend APIs for the project and gained solid understanding in GraphQL API design, couple and decouple, TypeScript (which I quite like!), many-to-many relation databases, Git workflow, and so much more.
 
 ## Fun Fact ##
 The most challenging part was not even the coding part.
