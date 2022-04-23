@@ -2,11 +2,11 @@
 
 This is a simple, functional blog platform created with RedwoodJS framework.
 
-I created this project as I was applying for an unpaid position in a project team, and I was asked to demonstrate that I have the ability to learn fast when learning new frameworks and technologies.
+I created this project as I was applying for an unpaid position in a project team, and I was asked to demonstrate that I have the ability to learn fast and catch up - the other project team members are all experienced developers with 3+ or even 10 yrs experience at Google and Airbnb etc.
 
 Before this project I had zero knowledge of database ORM, GraphQL & Apollo, and serverless functions; it took me 3 days to learn these technologies and complete backend APIs for user signup, login, create/edit/delete blog posts, basic frontend interface, and successfully deploy this demo to Netlify.
 
-Upon the completion of this project, I was accepted for the position. 
+Upon the completion of this project, I was accepted for the position. I then developed 30+ backend APIs for the project and gained solid understanding in GraphQL API design, couple and decouple, many-to-many relation databases, Git workflow, and so much more.
 
 ## Fun Fact ##
 The most challenging part was not even the coding part.
