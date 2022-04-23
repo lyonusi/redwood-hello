@@ -13,7 +13,7 @@ The most challenging part was not even the coding part.
 
 On day one, I almost immediately failed to get it work in my local environment and NO useful information were given at all - I did not know what is not working, why it is happening, and how to make it work.
 
-I actually read through 30+ of source code documents of this framework and searched thoroughly on their community forum, GitHub pages, posted the issue, reached out for help, sent messages to the contributors, and figured out there were some version conflicts with its included components and the co-founder replied with temporary solutions... and several small issues and bugs in the next couple of days, all solved in this way - and later on they were officially solved in the next published versions. 
+I actually read through 30+ of this framework's source code documents and searched thoroughly on their community forum, GitHub pages, posted the issue, reached out for help, sent messages to the contributors, and figured out there were some version conflicts with its included components and the co-founder replied with temporary solutions... and several small issues and bugs in the next couple of days, all solved in this way - and later on they were officially solved in the next published versions. 
 
 And you know what? I **very much enjoyed & appreciate** this experience! 
 
