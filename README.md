@@ -8,6 +8,8 @@ Before this project I had zero knowledge of database ORM, GraphQL & Apollo, and 
 
 Upon the completion of this project, I was accepted for the position. I then developed 30+ backend APIs for the project and gained solid understanding in GraphQL API design, couple and decouple, TypeScript (which I quite like!), many-to-many relation databases, Git workflow, and so much more.
 
+Demo is [here](https://javascript-blog.netlify.app).
+
 ## Fun Fact ##
 The most challenging part was not even the coding part.
 
